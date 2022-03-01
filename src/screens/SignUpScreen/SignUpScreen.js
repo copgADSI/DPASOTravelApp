@@ -12,7 +12,9 @@ const SignUpScreen = () => {
     const [rePassword, setRePassword] = useState('')
     const [phone, setPhone] = useState('')
 
+    const onRegisterPress = () => {
 
+    }
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             <Image source={Logo} style={styles.logo, { width: 200, height: 350, marginTop: -100 }} resizeMode="contain" />
@@ -41,9 +43,12 @@ const SignUpScreen = () => {
                     placeholder="Ingrese Teléfono"
                     value={phone}
                     setValue={setPhone}
-                
+
                 />
-                <CustomButton text="Regístrate"  />
+                <CustomButton text="Regístrate" onPress={onRegisterPress} />
+                <Text style={styles.text}>
+                    Al registrarse aceptas los <Text>terminos de uso</Text>  y privacidad
+                </Text>
 
             </View>
         </ScrollView>
@@ -65,6 +70,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#051C10',
         margin: 10,
+    },
+    text:{
+
     }
 })
 
