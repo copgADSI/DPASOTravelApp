@@ -4,33 +4,20 @@ import Logo from '../../../assets/images/TemporalLogo.png'
 import CustomButton from '../../components/CustomButton'
 import CustomInput from '../../components/CustomInput'
 
-const SignInScreen = () => {
+const SignUpScreen = () => {
     const { height } = useWindowDimensions();
 
     const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [password, setPassword] = useState('')
+    const [rePassword, setRePassword] = useState('')
+    const [phone, setPhone] = useState('')
 
-    const onSignInPress = () => {
-        console.warn("Sign In")
-    }
-
-    const onForgotPasswordPressed = () => {
-        console.warn("Forgot Password")
-    }
-
-    const onSignInGoogle = () => {
-
-    }
-
-    const onSignUpUser = () => {
-        console.warn("Crear")
-
-    }
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
+            <Image source={Logo} style={styles.logo, { width: 200, height: 350, marginTop: -100 }} resizeMode="contain" />
             <View style={styles.root}>
-                <Image source={Logo} style={styles.logo, { width: 200, height: 350, marginTop: -100 }} resizeMode="contain" />
+                <Text style={styles.title}>Regístrate para Continuar</Text>
                 <CustomInput
                     placeholder="Ingrese Email"
                     value={email}
@@ -42,11 +29,22 @@ const SignInScreen = () => {
                     setValue={setPassword}
                     secureTextEntry={true}
                 />
-                <CustomButton text="Iniciar Sesión" onPress={onSignInPress} />
-                <CustomButton text="Iniciar Sesión con Google " onPress={onSignInGoogle} bgColor="#DD4D44" fgColor="#FAE9EA" />
-                <CustomButton text="Crear Usuario" onPress={ onSignUpUser} type="TERTIARY" />
-                <CustomButton text="Olvidé mi Contraseña " onPress={onForgotPasswordPressed} type="TERTIARY" />
-                <CustomButton text="No Tengo una Cuenta " onPress={onSignInGoogle} type="TERTIARY" />
+
+                <CustomInput
+                    placeholder="Confirmar Contraseña"
+                    value={rePassword}
+                    setValue={setRePassword}
+                    secureTextEntry={true}
+                />
+
+                <CustomInput
+                    placeholder="Ingrese Teléfono"
+                    value={phone}
+                    setValue={setPhone}
+                
+                />
+                <CustomButton text="Regístrate"  />
+
             </View>
         </ScrollView>
     )
@@ -61,7 +59,13 @@ const styles = StyleSheet.create({
         width: 2,
         maxWidth: 300,
         maxHeight: 200
+    },
+    tittle: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#051C10',
+        margin: 10,
     }
 })
 
-export default SignInScreen
+export default SignUpScreen

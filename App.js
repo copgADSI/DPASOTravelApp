@@ -21,12 +21,13 @@ import {
   Colors, 
 } from 'react-native/Libraries/NewAppScreen';
 import SignInScreen from './src/screens/SignInScreen/SignInScreen';
+import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
 
 
 const App = () => {  
   return (
     <SafeAreaView style={styles.root}>
-      <SignInScreen/>
+      <SignUpScreen/>
     </SafeAreaView>
   );
 };
