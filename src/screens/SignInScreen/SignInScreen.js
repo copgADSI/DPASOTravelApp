@@ -24,10 +24,11 @@ const SignInScreen = () => {
 
     const onForgotPasswordPressed = () => {
 
-        navigation.navigate('ForgotPasswordScreen')
+       // navigation.navigate('ForgotPasswordScreen')
     }
 
     const onSignUpPress = () => {
+        console.warn("sds")
         navigation.navigate('SignUpScreen')
 
     }

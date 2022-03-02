@@ -1,6 +1,8 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { View, Text, Image, StyleSheet, useWindowDimensions, Button, ScrollView } from 'react-native'
+import { Controller, useForm } from "react-hook-form";
+
 import Logo from '../../../assets/images/TemporalLogo.png'
 import CustomButton from '../../components/CustomButton'
 import CustomInput from '../../components/CustomInput'
@@ -12,6 +14,8 @@ const SignUpScreen = () => {
     const [password, setPassword] = useState('')
     const [rePassword, setRePassword] = useState('')
     const [phone, setPhone] = useState('')
+    const { control, handleSubmit, watch, formState: { errors } } = useForm();
+
 
     const onRegisterPress = () => {
             navigation.navigate('confirmEmailScreen')
@@ -34,11 +38,11 @@ const SignUpScreen = () => {
             <View style={styles.root}>
                 <Text style={styles.title}>Regístrate para Continuar</Text>
                 <CustomInput
-                    placeholder="Ingrese Email"
-                    value={email}
-                    setValue={setEmail}
+                     name="Email"
+                     placeholder="Ingrese Email"
+                     control={control}
                 />
-                <CustomInput
+               {/*  <CustomInput
                     placeholder="Ingrese Contraseña"
                     value={password}
                     setValue={setPassword}
@@ -57,7 +61,7 @@ const SignUpScreen = () => {
                     value={phone}
                     setValue={setPhone}
 
-                />
+                /> */}
                 <CustomButton text="Regístrate" onPress={onRegisterPress} />
                 <CustomButton text="Ya Tengo Cuenta" onPress={onSignInPress} type="TERTIARY"/>
                 <Text style={styles.text}>
