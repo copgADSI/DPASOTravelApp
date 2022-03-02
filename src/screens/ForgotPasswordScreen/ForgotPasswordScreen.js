@@ -1,40 +1,40 @@
 import React, { useState } from 'react'
 import { View, Text, Image, StyleSheet, useWindowDimensions, Button, ScrollView } from 'react-native'
 import Logo from '../../../assets/images/TemporalLogo.png'
-import CustomButton from '../CustomButton'
-import CustomInput from '../CustomInput'
+import CustomButton from '../../components/CustomButton'
+import CustomInput from '../../components/CustomInput'
 
-const ResetPasswordScreen = () => {
+const ForgotPasswordScreen = () => {
     const { height } = useWindowDimensions();
-    const [newPassword, setNewPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [email, setEmail] = useState('')
+ 
+    const onResetPasswordPressed = () => {
+
+    }
 
     const onSignInPress = () => {
 
     }
     
-    const onSubmitPressed = () => {
+    const onReSendInPress = () => {
 
     }
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             {/* <Image source={Logo} style={styles.logo, { width: 200, height: 350, marginTop: -100 }} resizeMode="contain" /> */}
             <View style={styles.root}>
-                <Text style={styles.tittle}>Nueva Contraseña  </Text>
+                <Text style={styles.tittle}>Recuperar Contraseña  </Text>
 
                 <CustomInput
-                    placeholder="Nueva Contraseña *"
-                    value={newPassword}
-                    setValue={setNewPassword}
+                    placeholder="Ingresa Email *"
+                    value={email}
+                    setValue={setEmail}
+                    onPress={onResetPasswordPressed}
                 />
-                <CustomInput
-                    placeholder="Confirmar Contraseña *"
-                    value={confirmPassword}
-                    setValue={setConfirmPassword}
-                />
-                <CustomButton onPress={onSubmitPressed} text="Confirmar" />
-                <CustomButton text="Volver a Inicio de Sesión" type="TERTIARY" />
-
+                <CustomButton text="Confirmar" />
+                <CustomButton text="Reenviar Código" type="SECONDARY" onPress={onReSendInPress}/>
+                <CustomButton text="Volver al Inicio de Sesión" type="TERTIARY" onPress={onSignInPress}/>
+            
 
             </View>
         </ScrollView>
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default ResetPasswordScreen
+export default ForgotPasswordScreen

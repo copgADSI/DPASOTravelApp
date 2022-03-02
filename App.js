@@ -20,17 +20,15 @@ import {
 import {
   Colors, 
 } from 'react-native/Libraries/NewAppScreen';
-import ForgotPasswordScreen from './src/components/ForgotPasswordScreen/ForgotPasswordScreen';
-import ResetPasswordScreen from './src/components/ResetPasswordScreen/ResetPasswordScreen';
-import ConfirmEmailScreen from './src/screens/ConfirmEmailScreen/ConfirmEmailScreen';
-import SignInScreen from './src/screens/SignInScreen/SignInScreen';
-import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
+
+import Navigation from './src/Navigation';
+
 
 
 const App = () => {  
   return (
     <SafeAreaView style={styles.root}>
-      <ResetPasswordScreen/>
+      <Navigation/>
     </SafeAreaView>
   );
 };
