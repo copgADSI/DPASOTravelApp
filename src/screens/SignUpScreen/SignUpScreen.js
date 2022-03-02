@@ -15,9 +15,21 @@ const SignUpScreen = () => {
     const onRegisterPress = () => {
 
     }
+
+    const onTermsOfUsePressed = () => {
+        console.warn("Terms")
+    }
+
+    const onPrivacyPressed = () => {
+        console.warn("Privacy")
+    }
+
+    const onSignInPress = () => {
+
+    }
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
-            <Image source={Logo} style={styles.logo, { width: 200, height: 350, marginTop: -100 }} resizeMode="contain" />
+            {/* <Image source={Logo} style={styles.logo, { width: 200, height: 350, marginTop: -100 }} resizeMode="contain" /> */}
             <View style={styles.root}>
                 <Text style={styles.title}>Regístrate para Continuar</Text>
                 <CustomInput
@@ -46,8 +58,11 @@ const SignUpScreen = () => {
 
                 />
                 <CustomButton text="Regístrate" onPress={onRegisterPress} />
+                <CustomButton text="Ya Tengo Cuenta" onPress={onSignInPress} type="TERTIARY"/>
                 <Text style={styles.text}>
-                    Al registrarse aceptas los <Text>terminos de uso</Text>  y privacidad
+                    Al registrarse aceptas los {' '}
+                    <Text style={styles.link} onPress={onTermsOfUsePressed}>terminos de uso</Text> y {' '}
+                    <Text style={styles.link} onPress={onPrivacyPressed}>Políctica de privacidad</Text>
                 </Text>
 
             </View>
@@ -57,6 +72,7 @@ const SignUpScreen = () => {
 }
 const styles = StyleSheet.create({
     root: {
+        marginTop:100,
         alignItems: 'center',
         padding: 20,
     },
@@ -71,9 +87,14 @@ const styles = StyleSheet.create({
         color: '#051C10',
         margin: 10,
     },
-    text:{
-
+    text: {
+        color: 'gray',
+        marginVertical: 10,
+    },
+    link: {
+        color: '#FDB075'
     }
+
 })
 
 export default SignUpScreen

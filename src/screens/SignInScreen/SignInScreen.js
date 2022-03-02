@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, useWindowDimensions, Button, ScrollView 
 import Logo from '../../../assets/images/TemporalLogo.png'
 import CustomButton from '../../components/CustomButton'
 import CustomInput from '../../components/CustomInput'
+import SocialSignInButtons from '../../components/SocialSignInButtons'
 
 const SignInScreen = () => {
     const { height } = useWindowDimensions();
@@ -16,10 +17,6 @@ const SignInScreen = () => {
 
     const onForgotPasswordPressed = () => {
         console.warn("Forgot Password")
-    }
-
-    const onSignInGoogle = () => {
-
     }
 
     const onSignUpUser = () => {
@@ -43,10 +40,9 @@ const SignInScreen = () => {
                     secureTextEntry={true}
                 />
                 <CustomButton text="Iniciar Sesión" onPress={onSignInPress} />
-                <CustomButton text="Iniciar Sesión con Google " onPress={onSignInGoogle} bgColor="#DD4D44" fgColor="#FAE9EA" />
-                <CustomButton text="Crear Usuario" onPress={ onSignUpUser} type="TERTIARY" />
+                <SocialSignInButtons/>
+                <CustomButton text="No Tengo Cuenta" onPress={ onSignUpUser} type="TERTIARY" />
                 <CustomButton text="Olvidé mi Contraseña " onPress={onForgotPasswordPressed} type="TERTIARY" />
-                <CustomButton text="No Tengo una Cuenta " onPress={onSignInGoogle} type="TERTIARY" />
             </View>
         </ScrollView>
     )
