@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { View, Text, Image, StyleSheet, useWindowDimensions, Button, ScrollView } from 'react-native'
 import Logo from '../../../assets/images/TemporalLogo.png'
@@ -5,15 +6,17 @@ import CustomButton from '../../components/CustomButton'
 import CustomInput from '../../components/CustomInput'
 
 const ForgotPasswordScreen = () => {
+    const navigation = useNavigation()
     const { height } = useWindowDimensions();
     const [email, setEmail] = useState('')
  
     const onResetPasswordPressed = () => {
+        navigation.navigate('ResetPasswordScreen')
 
     }
 
     const onSignInPress = () => {
-
+        navigation.navigate('SignInScreen')
     }
     
     const onReSendInPress = () => {
@@ -29,9 +32,8 @@ const ForgotPasswordScreen = () => {
                     placeholder="Ingresa Email *"
                     value={email}
                     setValue={setEmail}
-                    onPress={onResetPasswordPressed}
                 />
-                <CustomButton text="Confirmar" />
+                <CustomButton text="Confirmar" onPress={onResetPasswordPressed}/>
                 <CustomButton text="Reenviar Código" type="SECONDARY" onPress={onReSendInPress}/>
                 <CustomButton text="Volver al Inicio de Sesión" type="TERTIARY" onPress={onSignInPress}/>
             

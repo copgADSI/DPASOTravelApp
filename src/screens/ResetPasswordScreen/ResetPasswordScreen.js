@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { View, Text, Image, StyleSheet, useWindowDimensions, Button, ScrollView } from 'react-native'
 import Logo from '../../../assets/images/TemporalLogo.png'
@@ -5,12 +6,13 @@ import CustomButton from '../../components/CustomButton'
 import CustomInput from '../../components/CustomInput'
 
 const ResetPasswordScreen = () => {
+    const navigation = useNavigation()
     const { height } = useWindowDimensions();
     const [newPassword, setNewPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
     const onSignInPress = () => {
-
+        navigation.navigate('SignInScreen')
     }
     
     const onSubmitPressed = () => {
@@ -33,7 +35,7 @@ const ResetPasswordScreen = () => {
                     setValue={setConfirmPassword}
                 />
                 <CustomButton onPress={onSubmitPressed} text="Confirmar" />
-                <CustomButton text="Volver a Inicio de Sesión" type="TERTIARY" />
+                <CustomButton onPress={onSignInPress} text="Volver a Inicio de Sesión" type="TERTIARY" />
 
 
             </View>

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { View, Text, Image, StyleSheet, useWindowDimensions, Button, ScrollView } from 'react-native'
 import Logo from '../../../assets/images/TemporalLogo.png'
@@ -6,14 +7,14 @@ import CustomInput from '../../components/CustomInput'
 
 const SignUpScreen = () => {
     const { height } = useWindowDimensions();
-
+    const navigation = useNavigation()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState('')
     const [rePassword, setRePassword] = useState('')
     const [phone, setPhone] = useState('')
 
     const onRegisterPress = () => {
-
+            navigation.navigate('confirmEmailScreen')
     }
 
     const onTermsOfUsePressed = () => {
@@ -25,7 +26,7 @@ const SignUpScreen = () => {
     }
 
     const onSignInPress = () => {
-
+        navigation.navigate('SignInScreen')
     }
     return (
         <ScrollView showsVerticalScrollIndicator={false}>

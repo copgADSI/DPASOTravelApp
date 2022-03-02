@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { View, Text, Image, StyleSheet, useWindowDimensions, Button, ScrollView } from 'react-native'
 import Logo from '../../../assets/images/TemporalLogo.png'
@@ -6,19 +7,20 @@ import CustomInput from '../../components/CustomInput'
 
 const ConfirmEmailScreen = () => {
     const { height } = useWindowDimensions();
-
+    const navigation = useNavigation()
     const [code, setCode] = useState('')
  
     const onConfirmPressed = () => {
-
+        navigation.navigate('HomeScreen')
     }
 
     const onSignInPress = () => {
-
+        navigation.navigate('SignUpScreen')
     }
     
     const onReSendInPress = () => {
-
+        navigation.navigate('HomeScreen')
+     
     }
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -29,13 +31,11 @@ const ConfirmEmailScreen = () => {
                     placeholder="Código de Confirmación *"
                     value={code}
                     setValue={setCode}
-                    onPress={onConfirmPressed}
                 />
-                <CustomButton text="Confirmar" />
+                <CustomButton text="Confirmar" onPress={onConfirmPressed}/>
                 <CustomButton text="Reenviar Código" type="SECONDARY" onPress={onReSendInPress}/>
                 <CustomButton text="Volver al Inicio de Sesión" type="TERTIARY" onPress={onSignInPress}/>
-            
-
+    
             </View>
         </ScrollView>
     )
